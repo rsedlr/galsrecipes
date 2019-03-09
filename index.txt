@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+
+
+h1{
+ 	font-family: consolas;
+	font-size: 100px;
+	border: 2px solid #73AD21;
+	border-radius: 25px;
+	padding-left: 15px;
+	padding-right:300px;
+	padding-top:5px;
+	padding-bottom:15px;
+	margin-left:10px;
+	
+
+}
+
+img {
+
+  max-height:100px;
+vertical-align: middle;
+  width: auto;
+
+}
+
+#menu1 {
+    	font-family: verdana;
+    	font-size: 20px;
+	color:red
+}
+
+
+a.one:link, a.one:visited {
+    margin-left:10px;
+    background-color: powderblue;
+    color: black;
+    height: 100px;
+    width: 50%;
+    padding-left: 15px;
+    padding-top:5px;
+    font-family: verdana;
+    font-size: 50px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+}
+
+a.two:link, a.two:visited{
+
+}
+
+</style>
+</head>
+<body>
+
+<h1>Recipes</h1>
+
+<a class="one" href="Recipes/Spinach-Chickpeas-Mushrooms.html" target="_blank">Spinach, Chickpeas & Mushrooms</a>
+<a class="two" href="Recipes/img/spinach-mushroom-chickpea.jpg">
+<img src="Recipes/img/spinach-mushroom-chickpea.jpg" alt="slurp" >
+
+<p> </p>
+<at href="Spinach-Chickpeas-Mushrooms.txt" target="_blank">Spinach, Chickpeas & Mushrooms</a>
+<img src="/Recipes/Spinach-Chickpeas-and-Mushroom-My-Whole-Food-Life.jpg" alt="Fjords" >
+<p id="menu1"> </p>
+<a href="Spinach-Chickpeas-Mushrooms.txt" target="_blank">Spinach, Chickpeas & Mushrooms</a>
+<img src="Spinach-Chickpeas-and-Mushroom-My-Whole-Food-Life.jpg" alt="Fjords" >
+<p id="menu1"> </p>
+
+</body>
+</html>
