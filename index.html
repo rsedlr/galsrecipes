@@ -57,13 +57,13 @@ a.two:link, a.two:visited{}
 
 </style>
 <script type='text/javascript'>
-function defPic() {
-    console.log('stuff happening');
-    if (this.src != `Recipes/img/${this.alt}.jpg`) {
-        this.src = 'Recipes/img/backup.png';
-        console.log('stuff happening mk 2');
-    } 
-}
+$(document).ready(function () {
+    function defPic() {
+        if (this.src != `Recipes/img/${this.alt}.jpg`) {
+            this.src = 'Recipes/img/backup.png';
+        } 
+    }
+});
 </script>
 </head>
 <body>
