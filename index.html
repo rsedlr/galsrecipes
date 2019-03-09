@@ -58,7 +58,7 @@ a.two:link, a.two:visited{}
 </style>
 <script type='text/javascript'>
     console.log(`Recipes/img/${this.alt}.jpg`);
-    function defPic() {
+    function defPic(this) {
         if (this.src != `Recipes/img/${this.alt}.jpg`) {
             this.src = 'Recipes/img/backup.png';
         } 
