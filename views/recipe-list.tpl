@@ -18,7 +18,6 @@
     }
 
     img {
-
         max-height:100px;
         border: 6px solid #9EC9CF;
         border-radius: 25px;
