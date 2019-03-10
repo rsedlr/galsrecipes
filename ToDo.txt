@@ -1,0 +1,13 @@
+RsEdler todo:
+-add about section, something like 'im a __' and have fancy stuff happen
+
+-add popovers to heat demo
+
+-python frameworks
+-raspberry pi club
+-robotics club
+-participation in open source (hacktober fest)
+-THIS website
+
+-make contact page look better
+
