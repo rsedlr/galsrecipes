@@ -60,12 +60,18 @@
   <body>
     <h1>Gals Recipes</h1>
 
-    %for row in rows:
-      <a class="one" href="Recipes/Spinach-Chickpeas-Mushrooms.html" target="_blank">{{row}}</a>
-      <a class="two" href="Recipes/img/spinach-mushroom-chickpea.jpg">
-      <!-- <img src="Recipes/img/spinach-mushroom-chickpea.jpg" alt="slurp" onerror="if (this.src != 'Recipes/img/spinach-mushroom-chickpea.jpg') this.src = 'Recipes/img/backup.png';"> -->
+    % for row in rows:
+      <a class="one" href="Recipes/{{row[2]}}.html" target="_blank">
+        <span style="font-weight: bold">{{row[0]}}</span>
+        <br>
+        <span style="font-size: 25px; padding-left: 3px">{{row[1]}}</span>
+      </a>
+      % import os ; imgLoc = 'backup' if not os.path.isfile('templates/img/' + row[2] + '.jpg') else row[2]
+      <a class="two" href="Recipes/img/{{row[2]}}.jpg">
+      <img src="/static/img/{{imgLoc}}.jpg" alt="slurp">
       <p></p>
-    %end
+      </a>
+    % end
 
   </body>
 </html>
