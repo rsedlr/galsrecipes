@@ -21,7 +21,6 @@ except:
   key = 'blah'
   info = 'test'
 
-
 if not dev:
   pass
 
@@ -82,14 +81,23 @@ def recipeSubmit():
     date = datetime.now().strftime("%d-%m-%Y")
     conn.execute('INSERT INTO recipe_tbl(name, imgLocation, date, method, ingredients, extension) VALUES (?,?,?,?,?,?)', [title, location, date, method, ingredients, ext[1:]])
     conn.commit()
-
     file_path = "templates/img/{file}".format(file=file_name)
     upload.save(file_path)
-    print("File successfully saved to '{0}'.".format(file_name))
+    print("-------------- File saved to '{0} --------------'.".format(file_name))
     print('-------------- committed a recipe --------------')
   except Exception as e:
     print(e)
   return template('recipe-done')
+
+
+@route('/recipe/<name>')
+def recipe(name):
+  conn = sqlite3.connect('recipes.db')
+  c = conn.cursor()
+  c.execute("SELECT name, method, ingredients FROM recipe_tbl WHERE imgLocation=\'%s\';" %name)
+  result = c.fetchall()
+  c.close()
+  return template('recipe-instructions', title=result[0][0], methods=result[0][1].split('\n'), ingredients=result[0][2].split('\n'))
 
 
 @route('/h162bs5dkjwels9f74nc7r64', method='POST')

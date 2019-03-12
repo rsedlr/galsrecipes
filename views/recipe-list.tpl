@@ -52,15 +52,13 @@
 
     a.one:hover {background-color: #2F3C3E;}
 
-    a.two:link, a.two:visited{}
-
     </style>
   </head>
   <body>
     <h1>Gals Recipes</h1>
 
     % for row in rows:
-      <a class="one" href="/recipes/{{row[2]}}.html" target="_blank">
+      <a class="one" href="/recipe/{{row[2]}}">
         <span style="font-weight: bold">{{row[0]}}</span>
         <br>
         <span style="font-size: 25px; padding-left: 3px">{{row[1]}}</span>

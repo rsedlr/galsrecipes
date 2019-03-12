@@ -11,7 +11,6 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <style>
-
       #drop-zone {
           /*Sort of important*/
           width: 300px;
@@ -73,7 +72,6 @@
         overflow: hidden;
         outline: none;
       }
-      
     </style>
   </head>
   <body>
@@ -92,11 +90,11 @@
               </div>        
               <div class="form-group">
                 <label for="ingredients" class="h2 white bold">Ingredients</label>
-                <textarea name="ingredients" class="form-control" rows="5" placeholder="e.g. 'bread, butter'" required></textarea>
+                <textarea name="ingredients" class="form-control" rows="5" placeholder="e.g. 'bread, butter'\nEach new line will be a new row in the table" required></textarea>
               </div>
               <div class="form-group">
                 <label for="method" class="h2 white bold">Method</label>
-                <textarea name="method" class="form-control" rows="5" placeholder="e.g. 'put bread in toaster'" required></textarea>
+                <textarea name="method" class="form-control" rows="5" placeholder="e.g. 'put bread in toaster'\nEach new line will be a new row in the table" required></textarea>
               </div>
             </div>
             <div class="col-md-6 col-sm-12" style="padding-top: 90px">
@@ -108,10 +106,10 @@
                 </div>
               </div> -->
               <!-- <input type="file" name="pic"> -->
-              <input type="file" name="pic" id="pic" accept="image/*">
+              <input type="file" name="pic" id="pic" accept="image/*" required>
             </div>
             <div class="col-md-6 col-sm-12" style="padding-left: 15px;">
-              <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-primary btn-lg" style="">Submit</button>
+              <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-primary btn-lg">Submit</button>
               <div id="msgSubmit" class="h5 text-center boxCol fit-content" style="visibility: hidden;">.</div>
             </div>
           </div>
