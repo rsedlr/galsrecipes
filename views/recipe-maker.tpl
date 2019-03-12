@@ -14,12 +14,6 @@
       .btn {
         background-color: grey;
       }
-      .box__dragndrop,
-      .box__uploading,
-      .box__success,
-      .box__error {
-        display: none;
-      }
     </style>
   </head>
   <body>
@@ -27,47 +21,41 @@
       <form role="form" id="contactForm">
       <div class="container" style="padding: 0">
         <div class="row">
-            <div class="col-md-6 col-sm-12">
-              <h1 style="font-weight: bolder; font-size: 50px; margin-bottom: 20px">Recipe Maker</h1>
-              <div data-aos="fade-up" data-aos-offset="150" data-aos-delay="150" class="row">
-                <div class="form-group col-sm-12">
-                  <label for="title" class="h2 white bold">Title</label>
-                  <input type="text" class="form-control" id="title" placeholder="e.g. 'toast'" required>
-                </div>
-              </div>        
-              <div data-aos="fade-up" data-aos-offset="100" data-aos-delay="250" class="form-group">
-                <label for="ingredients" class="h2 white bold">Ingredients</label>
-                <textarea id="ingredients" class="form-control" rows="5" placeholder="e.g. 'bread, butter'" required></textarea>
+          <div class="col-md-6 col-sm-12">
+            <h1 style="font-weight: bolder; font-size: 50px; margin-bottom: 20px">Recipe Maker</h1>
+            <div data-aos="fade-up" data-aos-offset="150" data-aos-delay="150" class="row">
+              <div class="form-group col-sm-12">
+                <label for="title" class="h2 white bold">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="e.g. 'toast'" required>
               </div>
-              <div data-aos="fade-up" data-aos-offset="100" data-aos-delay="250" class="form-group">
-                <label for="method" class="h2 white bold">Method</label>
-                <textarea id="method" class="form-control" rows="5" placeholder="e.g. 'put bread in toaster'" required></textarea>
-              </div>
-              <div data-aos="fade-up" data-aos-offset="50" data-aos-delay="400">
-                <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-lg" style="margin: 10px; background-color: blach; color: whitesmoke">Submit</button>
-                <div id="msgSubmit" class="h5 text-center boxCol fit-content" style="visibility: hidden;">.</div>
-              </div>
+            </div>        
+            <div data-aos="fade-up" data-aos-offset="100" data-aos-delay="250" class="form-group">
+              <label for="ingredients" class="h2 white bold">Ingredients</label>
+              <textarea id="ingredients" class="form-control" rows="5" placeholder="e.g. 'bread, butter'" required></textarea>
             </div>
-            <div class="col-md-6 col-sm-12" style="padding-top: 90px">
-              <div class="box__input">
-                <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-                <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-                <button class="box__button" type="submit">Upload</button>
-              </div>
-              <div class="box__uploading">Uploading&hellip;</div>
-              <div class="box__success">Done!</div>
-              <div class="box__error">Error! <span></span>.</div>
+            <div data-aos="fade-up" data-aos-offset="100" data-aos-delay="250" class="form-group">
+              <label for="method" class="h2 white bold">Method</label>
+              <textarea id="method" class="form-control" rows="5" placeholder="e.g. 'put bread in toaster'" required></textarea>
             </div>
+            <div data-aos="fade-up" data-aos-offset="50" data-aos-delay="400">
+              <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-lg" style="margin: 10px; background-color: blach; color: whitesmoke">Submit</button>
+              <div id="msgSubmit" class="h5 text-center boxCol fit-content" style="visibility: hidden;">.</div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12" style="padding-top: 90px">
+            <div class="box__input">
+              <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
+              <button class="box__button" type="submit">Upload</button>
+            </div>
+            <div class="box__uploading">Uploading&hellip;</div>
+            <div class="box__success">Done!</div>
+            <div class="box__error">Error! <span></span>.</div>
           </div>
         </div>
       </form>
     </div>
   </body>
   <script>
-    $("#contactForm").submit(function(event){
-      event.preventDefault();
-      submitForm();
-    });
     function submitForm(){
       var title = $("#title").val();
       var subtitle = $("#subtitle").val();
@@ -88,5 +76,11 @@
         },
       });
     }
+    $("#contactForm").submit(function(event){
+      event.preventDefault();
+      submitForm();
+    });
   </script>
 </html>
+
+

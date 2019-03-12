@@ -90,12 +90,28 @@ if __name__ == '__main__':
     run(host=host, port=port, reloader=True, threaded=True, debug=False)  # 127.0.0.1
 
 
-# wordssssss
+# wordsssssssssssssssssssss
 
 '''
 user: request.environ.get('REMOTE_USER', '')
 url: request.url
 acc id: account_id
+
+@route('/upload', method='POST')
+def do_upload():
+    category = request.forms.get('category')
+    upload = request.files.get('upload')
+    name, ext = os.path.splitext(upload.filename)
+    if ext not in ('.png', '.jpg', '.jpeg'):
+        return "File extension not allowed."
+
+    save_path = "/tmp/{category}".format(category=category)
+    if not os.path.exists(save_path):
+        os.makedirs(save_path)
+
+    file_path = "{path}/{file}".format(path=save_path, file=upload.filename)
+    upload.save(file_path)
+    return "File successfully saved to '{0}'.".format(save_path)
 
 
 # def run_decoupled(app, host='0.0.0.0', port=8080, **config):
