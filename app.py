@@ -8,13 +8,19 @@ try:
 except Exception as e:
   print(e)
 
-
 try:
   dev = True if sys.argv[1] == '-dev' else False
 except:
   dev = False
 
-key = 'beepbopboop'  #not normally kept in cleartext but fine for demo
+try:
+  file = open('info.txt', 'r')
+  key, info = file.read().split('-')
+  file.close()
+except:
+  key = 'blah'
+  info = 'test'
+
 
 if not dev:
   pass
@@ -43,11 +49,11 @@ def listRecipes():
 @route('/recipe-maker/', method=["POST","GET"])
 def recipeMaker():
   global key
-  password = request.forms.get('password')
-  if password == 'test':
+  pswd = request.forms.get('password')
+  if pswd == :
     response.set_cookie("userR", 'yes', secret=key)  # , username
     return template('recipe-maker')
-  elif password != None:
+  elif pswd != None:
     return template('login', error='Incorrect password')
   return template('login', error=None)
 
