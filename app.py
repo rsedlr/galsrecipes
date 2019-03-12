@@ -50,7 +50,7 @@ def listRecipes():
 def recipeMaker():
   global key
   pswd = request.forms.get('password')
-  if pswd == :
+  if pswd == info:
     response.set_cookie("userR", 'yes', secret=key)  # , username
     return template('recipe-maker')
   elif pswd != None:
