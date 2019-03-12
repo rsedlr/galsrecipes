@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="/static//dropzone.js"></script>
     <style>
 
       #drop-zone {
@@ -74,93 +73,50 @@
         overflow: hidden;
         outline: none;
       }
+      
     </style>
   </head>
   <body>
     <div id="main" class="boxCol" style="padding: 50px 80px;">
-      <form role="form" id="contactForm">
-      <div class="container" style="padding: 0">
-        <div class="row">
+      <!-- <form role="form" id="recipeForm"> -->
+      <form action="/recipe-submit/" method="post" enctype="multipart/form-data">
+        <div class="container" style="padding: 0">
+          <div class="row">
             <div class="col-md-6 col-sm-12">
               <h1 style="font-weight: bolder; font-size: 50px; margin-bottom: 20px">Recipe Maker</h1>
               <div class="row">
                 <div class="form-group col-sm-12">
                   <label for="title" class="h2 white bold">Title</label>
-                  <input type="text" class="form-control" id="title" placeholder="e.g. 'toast'" required>
+                  <input type="text" class="form-control" name="title" placeholder="e.g. 'toast'" required>
                 </div>
               </div>        
               <div class="form-group">
                 <label for="ingredients" class="h2 white bold">Ingredients</label>
-                <textarea id="ingredients" class="form-control" rows="5" placeholder="e.g. 'bread, butter'" required></textarea>
+                <textarea name="ingredients" class="form-control" rows="5" placeholder="e.g. 'bread, butter'" required></textarea>
               </div>
               <div class="form-group">
                 <label for="method" class="h2 white bold">Method</label>
-                <textarea id="method" class="form-control" rows="5" placeholder="e.g. 'put bread in toaster'" required></textarea>
+                <textarea name="method" class="form-control" rows="5" placeholder="e.g. 'put bread in toaster'" required></textarea>
               </div>
-              <div>
-                <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-primary btn-lg" style="">Submit</button>
-                <div id="msgSubmit" class="h5 text-center boxCol fit-content" style="visibility: hidden;">.</div>
-              </div>
-            </div>        
-            <div data-aos="fade-up" data-aos-offset="100" data-aos-delay="250" class="form-group">
-              <label for="ingredients" class="h2 white bold">Ingredients</label>
-              <textarea id="ingredients" class="form-control" rows="5" placeholder="e.g. 'bread, butter'" required></textarea>
             </div>
             <div class="col-md-6 col-sm-12" style="padding-top: 90px">
-              <div id="drop-zone">
+              <!-- <div id="drop-zone">
                 Drop files here...
                 <div id="clickHere">
                   or click here..
                   <input id="file" type="file">
                 </div>
-              </div>
-              <!-- <input id="file" type="file"> -->
+              </div> -->
+              <!-- <input type="file" name="pic"> -->
+              <input type="file" name="pic" id="pic" accept="image/*">
             </div>
-            <div data-aos="fade-up" data-aos-offset="50" data-aos-delay="400">
-              <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-lg" style="margin: 10px; background-color: blach; color: whitesmoke">Submit</button>
+            <div class="col-md-6 col-sm-12" style="padding-left: 15px;">
+              <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-primary btn-lg" style="">Submit</button>
               <div id="msgSubmit" class="h5 text-center boxCol fit-content" style="visibility: hidden;">.</div>
             </div>
-          </div>
-          <div class="col-md-6 col-sm-12" style="padding-top: 90px">
-            <div class="box__input">
-              <input class="box__file" type="file" name="files[]" id="file" data-multiple-caption="{count} files selected" multiple />
-              <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
-              <button class="box__button" type="submit">Upload</button>
-            </div>
-            <div class="box__uploading">Uploading&hellip;</div>
-            <div class="box__success">Done!</div>
-            <div class="box__error">Error! <span></span>.</div>
           </div>
         </div>
       </form>
     </div>
   </body>
-  <script>
-    function submitForm(){
-      var title = $("#title").val();
-      var subtitle = $("#subtitle").val();
-      var ingredients = $("#ingredients").val();
-      var method = $("#method").val();
-      $.ajax({
-        type: "POST",
-        url: "/recipe-submit/",
-        data: "title=" + title + "&subtitle=" + subtitle + "&ingredients=" + ingredients + "&method=" + method,
-        success: function(data) {
-          // $("#msgSubmit").text('Recipe submitted');
-          // $("#msgSubmit").css('visibility', 'visible');
-          window.location.href = "/recipe-done";
-        },
-        error: function(data) {
-          $("#msgSubmit").text('Error, try again');
-          $("#msgSubmit").css('visibility', 'visible');
-        },
-      });
-    }
-    $("#contactForm").submit(function(event){
-      event.preventDefault();
-      submitForm();
-    });
-  </script>
 </html>
-
-

@@ -60,14 +60,14 @@
     <h1>Gals Recipes</h1>
 
     % for row in rows:
-      <a class="one" href="Recipes/{{row[2]}}.html" target="_blank">
+      <a class="one" href="/recipes/{{row[2]}}.html" target="_blank">
         <span style="font-weight: bold">{{row[0]}}</span>
         <br>
         <span style="font-size: 25px; padding-left: 3px">{{row[1]}}</span>
       </a>
-      % import os ; imgLoc = 'backup' if not os.path.isfile('templates/img/' + row[2] + '.jpg') else row[2]
-      <a class="two" href="Recipes/img/{{row[2]}}.jpg">
-      <img src="/static/img/{{imgLoc}}.jpg" alt="slurp">
+      % import os ; imgLoc = 'backup2.png' if not os.path.isfile('templates/img/' + row[2] + '.' + row[3]) else row[2] + '.' + row[3]
+      <a class="two" href="/static/img/{{row[2]}}.{{row[3]}}">
+        <img src="/static/img/{{imgLoc}}" alt="slurp">
       <p></p>
       </a>
     % end

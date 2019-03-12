@@ -33,7 +33,7 @@ def server_static(filepath):
 def listRecipes():
   conn = sqlite3.connect('recipes.db')
   c = conn.cursor()
-  c.execute("SELECT name, date, imgLocation FROM recipe_tbl ORDER BY date DESC;")
+  c.execute("SELECT name, date, imgLocation, extension FROM recipe_tbl ORDER BY date DESC;")
   result = c.fetchall()
   c.close()
   return template('recipe-list', rows=result)
@@ -57,21 +57,33 @@ def done():
   return template('recipe-done')
 
 
-@route('/recipe-submit/', method='POST')
+@route('/recipe-submit/', method=['POST', 'GET'])
 def recipeSubmit():
   try:
     conn = sqlite3.connect('recipes.db')
     c = conn.cursor()
+    upload = request.files.get('pic')
+    name, ext = os.path.splitext(upload.filename)
     title = request.forms.get('title') or 'empty'
     ingredients = request.forms.get('ingredients') or 'empty'
     method = request.forms.get('method') or 'empty'
-    location = title.replace(' ', '-')
+    if title != 'empty':
+      location = title.replace(' ', '-')
+      file_name = location + ext
+    else:
+      location = upload.filename
+      file_name = location
     date = datetime.now().strftime("%d-%m-%Y")
-    conn.execute('INSERT INTO recipe_tbl(name, imgLocation, date, method, ingredients) VALUES (?,?,?,?,?)', [title, location, date, method, ingredients])
+    conn.execute('INSERT INTO recipe_tbl(name, imgLocation, date, method, ingredients, extension) VALUES (?,?,?,?,?,?)', [title, location, date, method, ingredients, ext[1:]])
     conn.commit()
+
+    file_path = "templates/img/{file}".format(file=file_name)
+    upload.save(file_path)
+    print("File successfully saved to '{0}'.".format(file_name))
     print('-------------- committed a recipe --------------')
   except Exception as e:
     print(e)
+  return template('recipe-done')
 
 
 @route('/h162bs5dkjwels9f74nc7r64', method='POST')
