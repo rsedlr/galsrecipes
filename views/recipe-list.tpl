@@ -52,6 +52,17 @@
 
     a.one:hover {background-color: #2F3C3E;}
 
+    .button {
+      -webkit-appearance: button;
+      -moz-appearance: button;
+      appearance: button;
+      text-decoration: none;
+      background-color: #9EC9CF;
+    }
+    .button:hover {
+      background-color: #2F3C3E;
+    }
+
     </style>
   </head>
   <body>
@@ -70,6 +81,7 @@
       </a>
     % end
 
+    <a href="/recipe-maker" class="button">Add Recipe</a>
   </body>
 </html>
 

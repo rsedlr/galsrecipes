@@ -58,11 +58,6 @@ def recipeMaker():
   return template('login', error=None)
 
 
-@route('/recipe-done')
-def done():
-  return template('recipe-done')
-
-
 @route('/recipe-submit/', method=['POST', 'GET'])
 def recipeSubmit():
   try:
@@ -71,6 +66,8 @@ def recipeSubmit():
     upload = request.files.get('pic')
     name, ext = os.path.splitext(upload.filename)
     title = request.forms.get('title') or 'empty'
+    serving = request.forms.get('serving')
+    time = request.forms.get('time')
     ingredients = request.forms.get('ingredients') or 'empty'
     method = request.forms.get('method') or 'empty'
     if title != 'empty':
@@ -80,11 +77,11 @@ def recipeSubmit():
       location = upload.filename
       file_name = location
     date = datetime.now().strftime("%d-%m-%Y")
-    conn.execute('INSERT INTO recipe_tbl(name, imgLocation, date, method, ingredients, extension) VALUES (?,?,?,?,?,?)', [title, location, date, method, ingredients, ext[1:]])
+    conn.execute('INSERT INTO recipe_tbl(name, imgLocation, date, method, ingredients, extension, serving, time) VALUES (?,?,?,?,?,?,?,?)', [title, location, date, method, ingredients, ext[1:], serving, time])
     conn.commit()
     file_path = "templates/img/{file}".format(file=file_name)
     upload.save(file_path)
-    print("-------------- File saved to '{0} --------------'.".format(file_name))
+    print("-------------- File saved to '{0}' --------------".format(file_name))
     print('-------------- committed a recipe --------------')
   except Exception as e:
     print(e)
@@ -95,10 +92,10 @@ def recipeSubmit():
 def recipe(name):
   conn = sqlite3.connect('recipes.db')
   c = conn.cursor()
-  c.execute("SELECT name, method, ingredients FROM recipe_tbl WHERE imgLocation=\'%s\';" %name)
+  c.execute("SELECT name, method, ingredients, time, serving FROM recipe_tbl WHERE imgLocation=\'%s\';" %name)
   result = c.fetchall()
   c.close()
-  return template('recipe-instructions', title=result[0][0], methods=result[0][1].split('\n'), ingredients=result[0][2].split('\n'))
+  return template('recipe-instructions', title=result[0][0], methods=result[0][1].split('\n'), ingredients=result[0][2].split('\n'), time=result[0][3], serving=result[0][4])
 
 
 @route('/h162bs5dkjwels9f74nc7r64', method='POST')

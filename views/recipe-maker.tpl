@@ -11,6 +11,17 @@
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <style>
+      img {
+        margin: 15px auto;
+        width: 60%;
+        max-height: 300px;
+        min-width: 100px;
+      }
+
+      input {
+        margin: 15px auto;
+      }
+
       #drop-zone {
           /*Sort of important*/
           width: 300px;
@@ -85,19 +96,37 @@
               <div class="row">
                 <div class="form-group col-sm-12">
                   <label for="title" class="h2 white bold">Title</label>
-                  <input type="text" class="form-control" name="title" placeholder="e.g. 'toast'" required>
+                  <input type="text" class="form-control" name="title" placeholder="Enter Title" required>
                 </div>
-              </div>        
+              </div>
+              <div class="row">
+                <div class="form-group col-sm-6">
+                  <label for="time" class="h2 white bold">Time To Make</label>
+                  <input type="text" class="form-control" name="time" placeholder="Enter cooking Duration" required>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="serving" class="h2 white bold">Serving</label>
+                  <input type="number" class="form-control" name="serving" placeholder=1 required>
+                </div>
+              </div> 
+              <input type="file" name="pic" id="pic" accept="image/*" required>  
+              <img id="imgPreview" src="#" alt="Your Image" style="visibility: hidden;"><br>
+            </div>
+            <div class="col-md-6 col-sm-12" style="padding-top: 90px">
               <div class="form-group">
                 <label for="ingredients" class="h2 white bold">Ingredients</label>
-                <textarea name="ingredients" class="form-control" rows="5" placeholder="e.g. 'bread, butter'\nEach new line will be a new row in the table" required></textarea>
+                <textarea name="ingredients" class="form-control" rows="5" placeholder="Each new line will be a new row in the table" required></textarea>
               </div>
               <div class="form-group">
                 <label for="method" class="h2 white bold">Method</label>
-                <textarea name="method" class="form-control" rows="5" placeholder="e.g. 'put bread in toaster'\nEach new line will be a new row in the table" required></textarea>
+                <textarea name="method" class="form-control" rows="5" placeholder="Each new line will be a new row in the table" required></textarea>
               </div>
-            </div>
-            <div class="col-md-6 col-sm-12" style="padding-top: 90px">
+
+              <div class="col-md-6 col-sm-12" style="padding-left: 15px;">
+                <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-primary btn-lg">Submit</button>
+                <div id="msgSubmit" class="h5 text-center boxCol fit-content" style="visibility: hidden;">.</div>
+              </div>
+
               <!-- <div id="drop-zone">
                 Drop files here...
                 <div id="clickHere">
@@ -106,15 +135,26 @@
                 </div>
               </div> -->
               <!-- <input type="file" name="pic"> -->
-              <input type="file" name="pic" id="pic" accept="image/*" required>
-            </div>
-            <div class="col-md-6 col-sm-12" style="padding-left: 15px;">
-              <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-primary btn-lg">Submit</button>
-              <div id="msgSubmit" class="h5 text-center boxCol fit-content" style="visibility: hidden;">.</div>
             </div>
           </div>
         </div>
       </form>
     </div>
+    <script>
+      function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function(e) {
+          $("#imgPreview").css('visibility', 'visible');
+          $('#imgPreview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+      }
+
+      $("#pic").change(function() {
+        readURL(this);
+      });
+    </script>
   </body>
 </html>
