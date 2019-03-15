@@ -17,7 +17,6 @@ try:
   file = open('info.txt', 'r')
   key, info = file.read().split('-')
   info = info.replace('\n', '')
-  print(info)
   file.close()
 except:
   key = 'blah'
