@@ -3,65 +3,77 @@
   <head>
     <style>
 
-    h1{
+      html {
         font-family: consolas, vedonas, arial;;
-        font-size: 100px;
-        color: #9EC9CF;
-        border: 6px solid #9EC9CF;
-        border-radius: 25px;
-        padding-left: 15px;
-        padding-right:300px;
-        padding-top:5px;
-        padding-bottom:15px;
-        margin-left:30px;
-        margin-right:120px;
-    }
+      }
 
-    img {
-        max-height:100px;
-        border: 6px solid #9EC9CF;
-        border-radius: 25px;
-        vertical-align: middle;
-        width: auto;
-    }
+      h1{
+          font-family: consolas, vedonas, arial;;
+          font-size: 100px;
+          width: calc(70% - 18px);
+          color: #9EC9CF;
+          border: 6px solid #9EC9CF;
+          border-radius: 25px;
+          padding: 5px 5px 15px 15px;
+          margin-left: 30px;
+      }
 
-    img:hover {border-color:  #2F3C3E;}
+      img {
+          max-height:100px;
+          border: 6px solid #9EC9CF;
+          border-radius: 25px;
+          vertical-align: middle;
+          width: auto;
+      }
 
-    #menu1 {
-        font-family: verdana;
-        font-size: 20px;
-        color:red
-    }
+      img:hover {border-color:  #2F3C3E;}
 
-    a.one:link, a.one:visited {
-        margin-left:30px;
-        border-radius: 25px;
-        vertical-align: middle;
+      #menu1 {
+          font-family: verdana;
+          font-size: 20px;
+          color:red
+      }
+
+      a.one:link, a.one:visited {
+          margin-left:30px;
+          border-radius: 25px;
+          vertical-align: middle;
+          background-color: #9EC9CF;
+          color: white;
+          height: 100px;
+          width: 70%;
+          padding-left: 15px;
+          padding-top:15px;
+          font-family: consolas, vedonas, arial;
+          font-size: 39px;
+          text-align: left;
+          text-decoration: none;
+          display: inline-block;
+      }
+
+      a.one:hover {background-color: #2F3C3E;}
+
+      .button {
+        font-family: consolas, vedonas, arial;;
+        text-decoration: none;
+        font-weight: bold;
         background-color: #9EC9CF;
-        color: white;
-        height: 100px;
+        border-radius: 25px;
+        font-size: 39px;
+        color: #fff;
+        margin-left: 30px;
+        vertical-align: middle;
+        height: 55px;
         width: 70%;
         padding-left: 15px;
-        padding-top:15px;
-        font-family: consolas, vedonas, arial;
-        font-size: 39px;
+        padding-top: 5px;
         text-align: left;
-        text-decoration: none;
         display: inline-block;
-    }
-
-    a.one:hover {background-color: #2F3C3E;}
-
-    .button {
-      -webkit-appearance: button;
-      -moz-appearance: button;
-      appearance: button;
-      text-decoration: none;
-      background-color: #9EC9CF;
-    }
-    .button:hover {
-      background-color: #2F3C3E;
-    }
+        margin-bottom: 30px;
+      }
+      .button:hover {
+        background-color: #2F3C3E;
+      }
 
     </style>
   </head>
