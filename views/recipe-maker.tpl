@@ -123,7 +123,7 @@
               </div>
 
               <div class="col-md-6 col-sm-12" style="padding-left: 15px;">
-                <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-primary btn-lg">Submit</button>
+                <button type="submit" id="form-submit" class="btn proj-btn main-btn btn-primary btn-lg" style="padding-left: 0">Submit</button>
                 <div id="msgSubmit" class="h5 text-center boxCol fit-content" style="visibility: hidden;">.</div>
               </div>
 
