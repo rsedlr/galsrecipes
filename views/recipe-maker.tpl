@@ -109,7 +109,7 @@
                   <input type="number" class="form-control" name="serving" placeholder=1 required>
                 </div>
               </div> 
-              <input type="file" name="pic" id="pic" accept="image/*" required>  
+              <input type="file" name="pic" id="pic" accept="image/*">  
               <img id="imgPreview" src="#" alt="Your Image" style="visibility: hidden;"><br>
             </div>
             <div class="col-md-6 col-sm-12" style="padding-top: 90px">
