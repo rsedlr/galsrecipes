@@ -79,14 +79,14 @@
   </head>
   <body>
     <h1>Gals Recipes</h1>
-
+    % import os
     % for row in rows:
       <a class="one" href="/recipe/{{row[2]}}">
         <span style="font-weight: bold">{{row[0]}}</span>
         <br>
         <span style="font-size: 25px; padding-left: 3px">{{row[1]}}</span>
       </a>
-      % import os ; imgLoc = 'backup2.png' if not os.path.isfile('templates/img/' + row[2] + '.' + row[3]) else row[2] + '.' + row[3]
+      % imgLoc = 'backup2.png' if not os.path.isfile('templates/img/' + row[2] + '.' + row[3]) else row[2] + '.' + row[3]
       <a class="two" href="/static/img/{{row[2]}}.{{row[3]}}">
         <img src="/static/img/{{imgLoc}}" alt="slurp">
       <p></p>
