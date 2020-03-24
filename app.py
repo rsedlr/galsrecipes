@@ -22,8 +22,8 @@ except:
   key = 'blah'
   info = 'test'
 
-if not dev:
-  pass
+# if not dev:
+#   pass
 
 @error(404)
 def error404(error):
